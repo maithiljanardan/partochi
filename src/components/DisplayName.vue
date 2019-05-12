@@ -3,6 +3,7 @@
         <div class="card-body">
             <h5 class="card-title">Display User</h5>
             <p class="card-text">Reversed Name is {{reversedName}}.</p>
+            <p class="card-text">Age is {{displayAge}}</p>
             <a href="#" class="btn btn-primary btn-sm" @click="resetName" >Reset Name</a>
         </div>
     </div>
@@ -11,13 +12,14 @@
 export default {
     props: {
         displayName: {
-            type: String
-        }
+            type: String,
+        },
+        displayAge: Number
     },
     methods: {
         resetName: function () {
             this.displayName = "dAcOIt"
-            this.$emit('nameWasReset',this.displayName)
+            this.$emit('nameWasReset', this.displayName)
         }
     },
     computed: {
