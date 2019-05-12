@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+     <div id="app" class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="jumbotron">
+              <h1 class="display-5"> Parent to Child Demo</h1>
+              <p>User name is : {{ name }}</p>
+              <p class="lead">
+                <a class="btn btn-success btn-md" href="#" @click="changeName" role="button">Change Name</a>
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+              <display-name :display-name="name" @nameWasReset="name= $event"></display-name>
+          </div>
+          <div class="col-lg-6">
+            
+          </div>
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import DisplayName from './components/DisplayName.vue'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+  data: function () {
+      return {
+        name: "Janardhan"
+      }
+    },
+    methods: {
+      changeName: function () {
+        this.name = "Janardhan Maithil"
+      }
+    },
+    components: {
+      'display-name' : DisplayName
+    }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  div{
+    border: 2px solid rgb(red, green, blue)
+  }
 </style>
