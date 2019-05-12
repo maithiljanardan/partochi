@@ -12,10 +12,14 @@ export default {
     props: ['age'],
     methods: {
         editAge: function () {
-            this.age = 20
+            this.age = this.getRandomInt(20, 30)
             this.$emit('ageWasEdited', this.age)
-        }
+        },
+        getRandomInt: function (min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+        } 
     }
-
 }
 </script>
